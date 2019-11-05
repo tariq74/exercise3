@@ -1,22 +1,53 @@
 
 #include "stdafx.h"
 #include<iostream>
-#include<cstdlib>
-#include<time.h>
+#define PI 3.14159;
 using namespace std;
+void display(int& choice) {
+
+	cout << "1.Calculate the area of the circle\n2.Calculate the area of the Reactangle\n3.Calulate the area of a triangle\n4.Quit";
+	cin >> choice;
+}
+void circle() {
+	double radius;
+	cout << "enter the radius";
+	cin >> radius;
+	double area = 2 * radius*PI;
+	cout << "the area of the circle is " << area<<endl;
+}
+void rec() {
+	int l, w;
+	cout << "enter the value of length and width of the reactangle";
+	cin >> l >> w;
+	int area = l * w;
+	cout << "the area of the reactangle is " << area<<endl;
+}
+void tri() {
+	int l, w;
+	cout << "enter the value of the length of the base of the triangle and height of the triangle";
+	cin >> l >> w;
+	int area = (l*w) / 2;
+	cout << "the area of the triangle is" << area<<endl;
+}
+
 int main()
 {
-	char choice;
-	int ran;
-	cout << "enter 'H' for Head and 'T' for tail\n";
-	cin >> choice;
-	srand ( time(NULL));
-	ran = rand()%2;
-	if (ran == 1 && choice == 'H')
-		cout << "You win\n";
-	else if (ran == 0 && choice == 'T')
-		cout << "You win\n";
-	else
-		cout << "You lose\n";
-    return 0;
+	int choice=0;
+	display(choice);
+	switch (choice) {
+	case 1: {
+		circle();
+		break;
+	}
+	case 2: {
+		rec();
+		break;
+	}
+	case 3: {
+		tri();
+		break;
+	}
+	case 4:
+		break;
+	}
 }
