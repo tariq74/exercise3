@@ -1,0 +1,22 @@
+
+#include "stdafx.h"
+#include<iostream>
+#include<cstdlib>
+#include<time.h>
+using namespace std;
+int main()
+{
+	char choice;
+	int ran;
+	cout << "enter 'H' for Head and 'T' for tail\n";
+	cin >> choice;
+	srand ( time(NULL));
+	ran = rand()%2;
+	if (ran == 1 && choice == 'H')
+		cout << "You win\n";
+	else if (ran == 0 && choice == 'T')
+		cout << "You win\n";
+	else
+		cout << "You lose\n";
+    return 0;
+}
